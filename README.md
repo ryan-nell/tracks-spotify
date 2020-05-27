@@ -1,4 +1,4 @@
-# MyReads Project
+# Tracks Spotify Project
 
 Spotify Tracks is a single page React application that allows users to search for tracks from Spotify 
 
