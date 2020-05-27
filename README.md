@@ -25,7 +25,6 @@ Once the user successfully launches the application in a browser. The user can s
 
 # Acknowledgements
 
-- BooksAPI provided by Udacity
 - [React](https://reactjs.org/ )
 - [Spotify](https://developer.spotify.com/)
 
