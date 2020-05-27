@@ -1,5 +1,6 @@
 import React, { Component} from 'react';
 import Tracks from './Components/Tracks'
+import SearchBar from './Components/SearchBar.js'
 import Spotify from './utils/Spotify.js'
 
 import './App.css';
@@ -48,8 +49,8 @@ class App extends Component {
     return(
       <div className="App">
         <button onClick={this.searchTracks}>searchTracks</button>
+        <SearchBar />
         <Tracks tracklist={this.state.tracklist} />
-        
       </div>
     );
   }
