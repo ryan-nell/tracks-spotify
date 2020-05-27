@@ -1,26 +1,40 @@
-import React from 'react';
-import logo from './logo.svg';
+import React, { Component} from 'react';
+import Tracks from './Components/Tracks'
+
 import './App.css';
 
-function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+class App extends Component {
+
+  state = {
+    tracklist: [
+      { id: 1,
+        name: 'track1',
+        artist: 'artist1',
+        albumName: 'album1',
+        albumArt: 'https://i.pinimg.com/originals/1b/a4/ee/1ba4ee679061b6af4033667da2a8e0c3.jpg'
+       },
+       { id: 2,
+        name: 'track2',
+        artist: 'artist2',
+        albumName: 'album2',
+        albumArt: 'https://images-na.ssl-images-amazon.com/images/I/71Bk7FnGznL._AC_SY355_.jpg'
+       },
+       { id: 3,
+        name: 'track3',
+        artist: 'artist3',
+        albumName: 'album3',
+        albumArt: 'https://pm1.narvii.com/6874/14c4c75bac68ebb1f53006934902b19c42798c1fr1-591-595v2_uhq.jpg'
+       }
+    ]
+  }
+
+  render() {
+    return(
+      <div className="App">
+        <Tracks tracklist={this.state.tracklist} />
+      </div>
+    );
+  }
 }
 
 export default App;
