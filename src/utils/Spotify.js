@@ -40,7 +40,32 @@ const Spotify = {
     // Fetch tracks
     getTracks(trackName) {
         const accessToken = Spotify.getAccessToken()
-       
+        return fetch(`https://api.spotify.com/v1/search?type=track&q=${trackName}`, {
+            headers: {
+                Authorization: `Bearer ${accessToken}`
+            }
+        })
+        .then(response => {
+            if(response.ok) {
+                return response.json()
+            }
+        })
+        .then(jsonResponse => {
+            if(jsonResponse) {
+                return jsonResponse.tracks.items.map(track => ({
+                    id: track.id,
+                    name: track.name,
+                    artist: track.artists[0].name,
+                    album: track.album.name,
+                    image: track.album.images.url,
+                    uri: track.uri,
+                    previewTrack: track.preview_url
+                }))
+            }
+            else {
+                return []
+            }
+        })
     }
 }
 
