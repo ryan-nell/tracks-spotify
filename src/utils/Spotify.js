@@ -1,7 +1,7 @@
 // Spotify Client ID, redirect URI and access token variables
-const clientId = '68d7380b8b43402a9a9350e0e31a9f92'
+const clientId = ''
 
-const redirectUri = 'http://localhost:3000/'
+const redirectUri = ''
 // Variale to hold access token retrevied from Spotify
 let accessToken;
 
@@ -11,7 +11,6 @@ const Spotify = {
     getAccessToken() {
         // return access token if ones assigned to the variable
         if(accessToken) {
-            console.log(accessToken)
             return accessToken
         }
 
@@ -29,18 +28,18 @@ const Spotify = {
             window.history.pushState('Access Token', null, '/');
             
             return accessToken
+            
         }
         // Spotify Access URL
         else {
-            const accessURL = `https://accounts.spotify.com/authorize?client_id=${clientId}
-            &response_type=token&scope=playlist-modify-public&redirect_uri=${redirectUri}`
+            const accessURL = `https://accounts.spotify.com/authorize?client_id=${clientId}&response_type=token&redirect_uri=${redirectUri}`
             window.location = accessURL 
         }
     }, 
     // Fetch tracks
     getTracks(trackName) {
         const accessToken = Spotify.getAccessToken()
-        return fetch(`https://api.spotify.com/v1/search?type=track&q=${trackName}`, {
+        return fetch(`https://api.spotify.com/v1/search?type=track&q=${trackName}&limit=9`, {
             headers: {
                 Authorization: `Bearer ${accessToken}`
             }
@@ -51,19 +50,19 @@ const Spotify = {
             }
         })
         .then(jsonResponse => {
-            if(jsonResponse) {
+            if(!jsonResponse) {
+                return []
+            }
+            else {
                 return jsonResponse.tracks.items.map(track => ({
                     id: track.id,
                     name: track.name,
                     artist: track.artists[0].name,
                     album: track.album.name,
-                    image: track.album.images.url,
+                    image: track.album.images[0].url,
                     uri: track.uri,
                     previewTrack: track.preview_url
                 }))
-            }
-            else {
-                return []
             }
         })
     }
