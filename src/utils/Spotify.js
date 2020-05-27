@@ -36,6 +36,11 @@ const Spotify = {
             &response_type=token&scope=playlist-modify-public&redirect_uri=${redirectUri}`
             window.location = accessURL 
         }
+    }, 
+    // Fetch tracks
+    getTracks(trackName) {
+        const accessToken = Spotify.getAccessToken()
+       
     }
 }
 
