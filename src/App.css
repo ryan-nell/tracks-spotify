@@ -46,6 +46,7 @@ html,
 .track:hover .track-details-container {
   display: block;
   background: rgba(0, 0, 0, .6);
+  overflow: scroll;
 }
 
 .track-album {
