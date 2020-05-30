@@ -9,6 +9,8 @@ html,
   text-align: center;
 }
 
+/* ---- Track Component Style ---------------------------------------------------------------- */
+
 .tracklist-container {
   width: 90%;
   margin: 0 auto;
@@ -21,13 +23,83 @@ html,
 }
 
 .track {
-  padding: 1%;
+  position: relative;
+  margin: 1%;
   display: flex;
   width: 25%;
-  
 }
+
+.track-details {
+  padding-top: 30%;
+}
+
+.track .track-details-container {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  display: none;
+  color: #FFF;
+}
+
+.track:hover .track-details-container {
+  display: block;
+  background: rgba(0, 0, 0, .6);
+}
+
 .track-album {
   width: 100%;
   height: 100%;
+  transition: 0.5s;  
+}
+
+.like-button {
+  padding-left: 5%
+}
+
+svg.svg-inline--fa.fa-heart.fa-w-16.like-button,
+svg.svg-inline--fa.fa-play-circle.fa-w-16.play-button,
+svg.svg-inline--fa.fa-pause-circle.fa-w-16.pause-button {
+  font-size: 6vw;
+}
+
+.details {
+  font-size: 1.5vw;
+} 
+
+/* ---- SearchBar Component Style ---------------------------------------------------------------- */
+
+.searchbar-div {
+  padding-top: 2%
+}
+
+.searchbar-input {
+  margin-right: 2%;
+  width: 50%;
+  height: 50px;
+  font-size: xxx-large;
+  font-family: 'Red Hat Display', sans-serif;
+  font-variant: small-caps;
+  text-align: center;
+  border-top: none;
+  border-left: none;
+  border-right: none;
+  outline: none;
+}
+
+/* .searchbar-input:focus {
+  width: 50%;
+  height: 50px;
+  font-size: xxx-large;
+  text-align: center;
+  border-top: none;
+  border-left: none;
+  border-right: none;
+  outline: none;
+} */
+
+.search-button {
+  cursor: pointer;
 }
 
