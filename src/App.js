@@ -1,5 +1,5 @@
 import React, { Component} from 'react';
-import Tracks from './Components/Tracks'
+import TrackData from './Components/TrackData.js'
 import SearchBar from './Components/SearchBar.js'
 import Spotify from './utils/Spotify.js'
 
@@ -9,12 +9,10 @@ class App extends Component {
 
   componentDidMount() {
     Spotify.getAccessToken()
-    
   }
 
   state = {
     tracklist: [],
-
   }
 
   searchTracks = (value) => {
@@ -23,15 +21,15 @@ class App extends Component {
       this.setState({
         tracklist: tracks
       })  
-    })
-    
+    })  
   }
 
   render() {
+    
     return(
       <div className="App">
         <SearchBar searchTracks={this.searchTracks}/>
-        <Tracks tracklist={this.state.tracklist} />
+        <TrackData tracklist={this.state.tracklist} />
       </div>
     );
   }
