@@ -55,11 +55,17 @@ html,
   transition: 0.5s;  
 }
 
-.like-button {
-  padding-left: 5%
+.like-button-unclicked {
+  padding-left: 5%;
 }
 
-svg.svg-inline--fa.fa-heart.fa-w-16.like-button,
+.like-button-clicked {
+  font-size: 6vw;
+  padding-left: 5%;
+  color: #00d9a3;
+}
+
+svg.svg-inline--fa.fa-heart.fa-w-16.like-button-unclicked,
 svg.svg-inline--fa.fa-play-circle.fa-w-16.play-button,
 svg.svg-inline--fa.fa-pause-circle.fa-w-16.pause-button {
   font-size: 6vw;
